@@ -53,8 +53,13 @@ print("The status of the third station is ", list_of_stations[3]["status"])
 ## Data structure
 ### Stations structure
 
-The econduce's API returns data in the following json format:
-```json
+This module translate the json objects to python objects and returns it to the user,
+it doesn't unwraps it because I didn't want to modify the data.
+
+The econduce's API returns data in the following json format,
+that's why you have to manually unwrap it with `client.get_stations_status()["stations"]`:
+
+```json5
 {
     "stations": [
         {
@@ -74,14 +79,12 @@ The econduce's API returns data in the following json format:
                 "lon": -99.14447
             },
             "stationType": "BIKE,TPV"
-        }, ...
+        },
     ]
 }
 ```
-This module translate the json objects to python objects and returns it to the user,
-it doesn't unwraps it because I didn't want to modify the data.
 
-That's why you have to manually unwrap it: ```client.get_stations_status()["stations"]'```
+#### Structure and types
 
 |Key|Type|
 |---|---|
@@ -107,8 +110,13 @@ Latitud and logitud are coordinates based on the [World Geodetic System (WGS84)]
 
 ### Status structure
 
-The econduce's API returns data in the following json format:
-```json
+This module translate the json objects to python objects and returns it to the user,
+it doesn't unwraps it because I didn't want to modify the data.
+
+The econduce's API returns data in the following json format,
+that's why you have to manually unwrap it with `client.get_stations_status()["stationsStatus"]`:
+
+```json5
 {
     "stationsStatus": [
         {
@@ -118,14 +126,12 @@ The econduce's API returns data in the following json format:
                 "bikes": 4,
                 "slots": 23
             }
-        }, ...
+        },
     ]
 }      
 ```
-This module translate the json objects to python objects and returns it to the user,
-it doesn't unwraps it because I didn't want to modify the data.
 
-That's why you have to manually unwrap it: ```client.get_stations_status()["stationsStatus"]'```
+#### Structure and types
 
 |Key|Type|
 |---|---|
