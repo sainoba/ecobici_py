@@ -13,4 +13,4 @@ install:
   - pipenv install --dev
 
 script:
-  - pipenv run -- pytest -s -v
+  - pipenv run -- pytest ecobici/test.py -s -v
