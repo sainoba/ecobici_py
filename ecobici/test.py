@@ -26,7 +26,7 @@ def test_refresh_token(ecobici):
 
 
 def test_get_stations_list(ecobici):
-    response = ecobici.get_stations_list()
+    response = ecobici.get_stations()
     assert "stations" in response, "Didn't get the correct response"
 
 

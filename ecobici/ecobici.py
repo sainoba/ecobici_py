@@ -55,7 +55,7 @@ class Ecobici:
         self.__token = self.__refresh_token_if_invalid(force=True)
         return self.token
 
-    def get_stations_list(self):
+    def get_stations(self):
         self.__refresh_token_if_invalid(10)
         url_params = {"api_section_and_method": STATIONS_METHOD, "token": self.token["access_token"]}
         url = API_URL.format(**url_params)
