@@ -52,6 +52,26 @@ print("The status of the third station is ", list_of_stations[3]["status"])
 
 ## Data structure
 ### Stations structure
+|Key|Type|
+|---|---|
+|id|int|
+|name|str|
+|address|str|
+|addressNumber|str|
+|zipCode|str|
+|districtCode|str|
+|districtName|str|
+|nearbyStations|list with id (int)|
+|location|list|
+|stationType|str|
+Location list:
+
+|Key|Type|
+|---|---|
+|lat|float|
+|lon|float|
+Latitud and logitud are coordinates based on the [World Geodetic System (WGS84)](https://es.wikipedia.org/wiki/WGS84).
+
 The econduce's API returns data in the following json format:
 ```json
 {
@@ -73,7 +93,7 @@ The econduce's API returns data in the following json format:
                 "lon": -99.14447
             },
             "stationType": "BIKE,TPV"
-        }
+        }, ...
     ]
 }
 ```
@@ -83,6 +103,18 @@ it doesn't unwraps it because I didn't want to modify the data.
 That's why you have to manually unwrap it: ```client.get_stations_status()["stations"]'```
 
 ### Status structure
+
+|Key|Type|
+|---|---|
+|id|int|
+|status|str (OPN means open, CLS means closed)|
+|availability|list|
+Availability list:
+
+|Key|Type|
+|---|---|
+|bikes|int|
+|slots|int|
 The econduce's API returns data in the following json format:
 ```json
 {
@@ -94,15 +126,7 @@ The econduce's API returns data in the following json format:
                 "bikes": 4,
                 "slots": 23
             }
-        },
-        {
-            "id": 2,
-            "status": "OPN",
-            "availability": {
-                "bikes": 8,
-                "slots": 4
-            }
-        }
+        }, ...
     ]
 }      
 ```
@@ -117,3 +141,4 @@ That's why you have to manually unwrap it: ```client.get_stations_status()["stat
 ## Notes
 - There's no need to refresh the token when it expires. The client does it automatically.
 - Ecobici's API can return _null_ values. It's up to you to verify that the value you want to access if defined.
+- You can find more information about the API structure here: [Spanish documentation](https://www.ecobici.cdmx.gob.mx/sites/default/files/pdf/manual_api_opendata_esp_final.pdf).
