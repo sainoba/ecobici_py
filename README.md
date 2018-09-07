@@ -53,28 +53,6 @@ print("The status of the third station is ", list_of_stations[3]["status"])
 ## Data structure
 ### Stations structure
 
-|Key|Type|
-|---|---|
-|id|int|
-|name|str|
-|address|str|
-|addressNumber|str|
-|zipCode|str|
-|districtCode|str|
-|districtName|str|
-|nearbyStations|list with id (int)|
-|location|list|
-|stationType|str|
-
-Location list:
-
-|Key|Type|
-|---|---|
-|lat|float|
-|lon|float|
-
-Latitud and logitud are coordinates based on the [World Geodetic System (WGS84)](https://es.wikipedia.org/wiki/WGS84).
-
 The econduce's API returns data in the following json format:
 ```json
 {
@@ -105,20 +83,29 @@ it doesn't unwraps it because I didn't want to modify the data.
 
 That's why you have to manually unwrap it: ```client.get_stations_status()["stations"]'```
 
-### Status structure
-
 |Key|Type|
 |---|---|
 |id|int|
-|status|str (OPN means open, CLS means closed)|
-|availability|list|
+|name|str|
+|address|str|
+|addressNumber|str|
+|zipCode|str|
+|districtCode|str|
+|districtName|str|
+|nearbyStations|list with id (int)|
+|location|list|
+|stationType|str|
 
-Availability list:
+Location list:
 
 |Key|Type|
 |---|---|
-|bikes|int|
-|slots|int|
+|lat|float|
+|lon|float|
+
+Latitud and logitud are coordinates based on the [World Geodetic System (WGS84)](https://es.wikipedia.org/wiki/WGS84).
+
+### Status structure
 
 The econduce's API returns data in the following json format:
 ```json
@@ -139,6 +126,19 @@ This module translate the json objects to python objects and returns it to the u
 it doesn't unwraps it because I didn't want to modify the data.
 
 That's why you have to manually unwrap it: ```client.get_stations_status()["stationsStatus"]'```
+
+|Key|Type|
+|---|---|
+|id|int|
+|status|str (OPN means open, CLS means closed)|
+|availability|list|
+
+Availability list:
+
+|Key|Type|
+|---|---|
+|bikes|int|
+|slots|int|
 
 ## Test 
 `python3 -m pytest ecobici/test.py`
