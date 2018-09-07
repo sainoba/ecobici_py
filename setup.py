@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="ecobici",
-    version="0.0.2",
+    version="0.0.3",
     author="Marco Nila",
     author_email="contact.marconila@gmail.com",
     description="This is a python wrapper for the ecobici api",

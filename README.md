@@ -52,6 +52,7 @@ print("The status of the third station is ", list_of_stations[3]["status"])
 
 ## Data structure
 ### Stations structure
+
 |Key|Type|
 |---|---|
 |id|int|
@@ -64,12 +65,14 @@ print("The status of the third station is ", list_of_stations[3]["status"])
 |nearbyStations|list with id (int)|
 |location|list|
 |stationType|str|
+
 Location list:
 
 |Key|Type|
 |---|---|
 |lat|float|
 |lon|float|
+
 Latitud and logitud are coordinates based on the [World Geodetic System (WGS84)](https://es.wikipedia.org/wiki/WGS84).
 
 The econduce's API returns data in the following json format:
@@ -109,12 +112,14 @@ That's why you have to manually unwrap it: ```client.get_stations_status()["stat
 |id|int|
 |status|str (OPN means open, CLS means closed)|
 |availability|list|
+
 Availability list:
 
 |Key|Type|
 |---|---|
 |bikes|int|
 |slots|int|
+
 The econduce's API returns data in the following json format:
 ```json
 {
