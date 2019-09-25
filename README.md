@@ -151,5 +151,5 @@ Availability list:
 
 ## Notes
 - There's no need to refresh the token when it expires. The client does it automatically.
-- Ecobici's API can return _null_ values. It's up to you to verify that the value you want to access if defined.
+- Ecobici's API can return _null_ values. It's up to you to verify that the value you want to access is defined.
 - You can find more information about the API structure here: [Spanish documentation](https://www.ecobici.cdmx.gob.mx/sites/default/files/pdf/manual_api_opendata_esp_final.pdf).
